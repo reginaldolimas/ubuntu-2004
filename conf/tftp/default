@@ -1,0 +1,46 @@
+default vesamenu.c32
+prompt 0
+timeout 300
+#MENU INCLUDE pxelinux.cfg/graphics.conf
+
+label localboot
+  menu label Boot pelo disco local
+  localboot 0
+
+#label puppy
+#  MENU PASSWD suportesap
+#  menu label ^Live-CD do Puppy Linux via PXE
+#  menu label PuppyLinux
+#  kernel puppy/vmlinuz
+#  append initrd=puppy/initrd.gz
+
+label mint
+  MENU PASSWD suportesap
+  menu label ^Live-CD do Linux Mint via PXE
+  menu label Instalar Linux Mint 20.1 (Beta 13)
+  kernel iso/mintadm/casper/vmlinuz
+  append initrd=/iso/mintadm/casper/initrd.lz nfsroot=10.18.5.29:/var/lib/tftpboot/iso/mintadm ro netboot=nfs file=/cdrom/preseed/linuxmint.seed boot=casper ip=dhcp --
+
+label lxle
+  MENU PASSWD suportesap
+  menu label ^Live-CD do Linux Lxle via PXE
+  menu label Instalar Linux Lxle ADM (Beta 10)
+  kernel iso/lxleadm/casper/vmlinuz
+  append initrd=/iso/lxleadm/casper/initrd.gz nfsroot=10.18.5.29:/var/lib/tftpboot/iso/lxleadm ro netboot=nfs file=/cdrom/preseed/custom.seed boot=casper ip=dhcp --
+
+label windows10
+  MENU PASSWD suportesap
+  menu label ^Live-CD do Windows 10 via PXE
+  menu label Instalar Windows 10 (Janeiro/22)
+  kernel memdisk
+  initrd /iso/windows10/Win_11_PE_x64.iso
+  append iso raw
+
+label windows7
+  MENU PASSWD suportesap
+  menu label ^Live-CD do Windows 7 via PXE
+  menu label Instalar Windows 7
+  kernel memdisk
+# initrd /iso/windows7/winpe_x86_win7_29.iso
+  initrd /iso/windows7/winpe7guest.iso
+  append iso raw
