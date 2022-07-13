@@ -5,7 +5,7 @@
 sshd: 172.16.1. : spawn /bin/echo "$(date) Conexão Liberada - SSH - IP %a" >> /var/log/tcpwrappers-allow-ssh.log
 #
 # Permitido a Rede 172.16.1.0/24 se autenticar remotamente no Servidor de MySQL
-mysqld: 172.16.1. : spawn /bin/echo "$(date) Conexão Liberada - MySQL - IP %a" >> /var/log/tcpwrappers-allow-mysql.log
+#mysqld: 172.16.1. : spawn /bin/echo "$(date) Conexão Liberada - MySQL - IP %a" >> /var/log/tcpwrappers-allow-mysql.log
 #
 # Permitido a Rede 172.16.1.20/24 se autenticar remotamente no Servidor de Telnet
 in.telnetd: 172.16.1. : spawn /bin/echo "$(date) Conexão Liberada - Telnet - IP %a" >> /var/log/tcpwrappers-allow-telnet.log
