@@ -1,18 +1,4 @@
 #!/bin/bash
-# Autor: Robson Vaamonde
-# Site: www.procedimentosemti.com.br
-# Facebook: facebook.com/ProcedimentosEmTI
-# Facebook: facebook.com/BoraParaPratica
-# YouTube: youtube.com/BoraParaPratica
-# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
-# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
-# Github: https://github.com/vaamonde
-# Data de criação: 10/10/2021
-# Data de atualização: 31/03/2022
-# Versão: 0.20
-# Testado e homologado para a versão do Ubuntu Server 20.04.x LTS x64
-# Testado e homologado para a versão do NTP Server v4.2.
-#
 # O NTP é um protocolo para sincronização dos relógios dos computadores baseado 
 # no protocolo UDP sob a porta 123. É utilizado para sincronização do relógio de 
 # um conjunto de computadores e dispositivos em redes de dados com latência variável. 
