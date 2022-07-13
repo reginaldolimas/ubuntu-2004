@@ -1,20 +1,4 @@
 #!/bin/bash
-# Autor: Robson Vaamonde
-# Site: www.procedimentosemti.com.br
-# Facebook: facebook.com/ProcedimentosEmTI
-# Facebook: facebook.com/BoraParaPratica
-# YouTube: youtube.com/BoraParaPratica
-# Linkedin: https://www.linkedin.com/in/robson-vaamonde-0b029028/
-# Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
-# Github: https://github.com/vaamonde
-# Data de criação: 10/10/2021
-# Data de atualização: 03/07/2022
-# Versão: 0.71
-# Testado e homologado para a versão do Ubuntu Server 20.04.x LTS x64
-#
-# Parâmetros (variáveis de ambiente) utilizados nos scripts de instalação dos Serviços de Rede
-# no Ubuntu Server 20.04.x LTS, antes de modificar esse arquivo, veja os arquivos: BUGS, NEW e
-# CHANGELOG para mais informações.
 #
 #=============================================================================================
 #                    VARIÁVEIS GLOBAIS UTILIZADAS EM TODOS OS SCRIPTS                        #
