@@ -1,0 +1,11 @@
+#!ipxe
+#prompt --key 0x02 --timeout 2000 Press Ctrl-B for the iPXE command line... && shell ||
+
+#set keep-san 1
+#sanhook iscsi:10.18.5.29:tcp:3260:1:net.cszombie.au:windows
+
+kernel http://10.18.5.29:80/wimboot wimboot
+initrd http://10.18.5.29:80/boot/bcd         bcd
+initrd http://10.18.5.29:80/boot/boot.sdi    boot.sdi
+initrd http://10.18.5.29:80/BOOT.WIM boot.wim
+boot

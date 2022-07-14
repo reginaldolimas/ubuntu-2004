@@ -1,0 +1,3 @@
+#!ipxe
+echo This is the IPXE shell! (From ipxe_shell.ipxe)
+shell
