@@ -44,3 +44,8 @@ label windows7
 # initrd /iso/windows7/winpe_x86_win7_29.iso
   initrd /iso/windows7/winpe7guest.iso
   append iso raw
+  
+label ipxe_winpe
+  menu label IPXE ^WinPE
+  kernel ipxe.lkrn
+  append dhcp && chain ipxe_winpe.ipxe
