@@ -1,3 +1,6 @@
+clear
+echo -e "#################    SCRIPT PARA MAPEAMENTO DE REDE VIA FSTAB  ######################"
+echo -e "\n"
 read -p "Nome de Usuario(Rede): " usuario
 IFS= read -s -p 'Senha do Usuario(Rede): ' senha
 touch /root/$usuario
