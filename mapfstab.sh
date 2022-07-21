@@ -1,5 +1,5 @@
 read -p "Nome de Usuario(Rede): " usuario
-read -s -p "Senha do Usuario(Rede): " senha
+IFS= read -s -p 'Senha do Usuario(Rede): ' senha
 touch /root/$usuario
 #
 echo -e "Salvando informacoes de login no arquivo...."
@@ -23,3 +23,4 @@ ln -s /mnt/srv_$usuario /home/$userlocal/Desktop/
 umount -av
 sleep 2s
 mount -av
+
