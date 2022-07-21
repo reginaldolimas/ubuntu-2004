@@ -10,6 +10,7 @@ echo -e "Criando pasta no /mnt...."
 mkdir -p /mnt/srv_$usuario
 #
 read -p "Ip do servidor(arquivos): " ipserver
+smbclient -L $ipserver --user=$usuario%$senha
 read -p "Nome da Pasta: " pasta
 read -p "Nome do usuario local: " userlocal
 #
