@@ -5,7 +5,7 @@ read -p "Nome de Usuario(Rede): " usuario
 IFS= read -s -p 'Senha do Usuario(Rede): ' senha
 touch /root/$usuario
 #
-echo -e "Salvando informacoes de login no arquivo...."
+echo -e "\nSalvando informacoes de login no arquivo...."
 #
 echo -e "user=$usuario\npassword=$senha" > /root/$usuario
 echo -e "Criando pasta no /mnt...."
@@ -13,6 +13,7 @@ echo -e "Criando pasta no /mnt...."
 mkdir -p /mnt/srv_$usuario
 #
 read -p "Ip do servidor(arquivos): " ipserver
+echo -e "Listando as pastas do Servidor...\n"
 smbclient -L $ipserver --user=$usuario%$senha
 read -p "Nome da Pasta: " pasta
 read -p "Nome do usuario local: " userlocal
