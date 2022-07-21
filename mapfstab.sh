@@ -28,4 +28,3 @@ ln -s /mnt/srv_$usuario /home/$userlocal/Desktop/
 umount -av
 sleep 2s
 mount -av
-
