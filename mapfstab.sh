@@ -1,5 +1,21 @@
 clear
 echo -e "#################    SCRIPT PARA MAPEAMENTO DE REDE VIA FSTAB  ######################"
+FSTABDEP="cifs-utils"
+    for name in $FSTABDEP
+        do
+            [[ $(dpkg -s $name 2> /dev/null) ]] || {
+                    echo -en "\n\nO software: $FSTABDEP precisa ser instalado. \nUse o camando 'apt install $FSTABDEP'\n";
+                    deps=1;
+                    }
+        done
+            [[ $deps -ne 1 ]] && echo "Dependências.: OK" || { 
+			echo -en "\nInstale as dependências acima e execute novamente este script\n";
+			exit 1; 
+			}
+		    sleep 2
+
+
+
 echo -e "\n"
 read -p "Nome de Usuario(Rede): " usuario
 IFS= read -s -p 'Senha do Usuario(Rede): ' senha
@@ -28,3 +44,4 @@ ln -s /mnt/srv_$usuario /home/$userlocal/Desktop/
 umount -av
 sleep 2s
 mount -av
+
