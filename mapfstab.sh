@@ -33,19 +33,10 @@ FSTABDEP="cifs-utils"
 echo -e "\n"
 read -p "Nome de Usuario(Rede): " usuario
 IFS= read -s -p 'Senha do Usuario(Rede): ' senha
-touch /root/$usuario
-#
-echo -e "\nSalvando informacoes de login no arquivo...."
-#
-echo -e "user=$usuario\npassword=$senha" > /root/$usuario
-echo -e "Criando pasta no /mnt...."
-#
-mkdir -p /mnt/srv_$usuario
-#
+echo -e "\n"
 read -p "Ip do servidor(arquivos): " ipserver
 echo -e "Listando as pastas do Servidor...\n"
 smbclient -L $ipserver --user=$usuario%$senha
-
 
 RESULT=`smbclient -L $ipserver --user=$usuario%$senha`
 #echo $RESULT
@@ -59,6 +50,13 @@ if [[ "$RESULT" == *"NT_STATUS_LOGON_FAILURE"* ]]; then
 else
 
 {
+        echo -e "\nSalvando informacoes de login no arquivo...."
+        touch /root/$usuario
+        sleep 2s
+        echo -e "user=$usuario\npassword=$senha" > /root/$usuario
+        echo -e "Criando pasta no /mnt...."
+        mkdir -p /mnt/srv_$usuario
+        #
         read -p "Nome da Pasta: " pasta
         read -p "Nome do usuario local: " userlocal
         #
