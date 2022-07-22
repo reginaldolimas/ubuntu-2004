@@ -10,7 +10,7 @@ FSTABDEP="cifs-utils"
         done
             [[ $deps -ne 1 ]] && echo "Dependências.: OK" || { 
 			echo -en "\nInstale as dependências acima e execute novamente este script\n";
-            echo -en "\n";
+            		echo -en "\n";
 			exit 1; 
 			}
 		    sleep 2
@@ -43,4 +43,3 @@ ln -s /mnt/srv_$usuario /home/$userlocal/Desktop/
 umount -av
 sleep 2s
 mount -av
-
