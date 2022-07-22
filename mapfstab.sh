@@ -10,7 +10,7 @@ FSTABDEP="cifs-utils"
         done
             [[ $deps -ne 1 ]] && echo "Dependências.: OK" || { 
 			echo -en "\nInstale as dependências acima e execute novamente este script\n";
-            		echo -en "\n";
+            echo -en "\n";
 			exit 1; 
 			}
 		    sleep 2
@@ -30,16 +30,32 @@ mkdir -p /mnt/srv_$usuario
 read -p "Ip do servidor(arquivos): " ipserver
 echo -e "Listando as pastas do Servidor...\n"
 smbclient -L $ipserver --user=$usuario%$senha
-read -p "Nome da Pasta: " pasta
-read -p "Nome do usuario local: " userlocal
-#
-echo -e "Adicionando linha no /etc/fstab...."
-#
-echo -e "//$ipserver/$pasta /mnt/srv_$usuario cifs vers=1.0,uid=$userlocal,gid=$userlocal,users,credentials=/root/$usuario 0 0" >> /etc/fstab
-#
-echo -e "Criando link simbolico para area de trabalho...."
-ln -s /mnt/srv_$usuario /home/$userlocal/Desktop/
-#
-umount -av
-sleep 2s
-mount -av
+
+
+RESULT=`smbclient -L $ipserver --user=$usuario%$senha`
+#echo $RESULT
+if [[ "$RESULT" == *"NT_STATUS_LOGON_FAILURE"* ]]; then
+        { 
+        echo -en "\n"
+        echo "Usuario ou senha invalidos! Ou servidor nao encontrado!"
+        echo -en "\n"
+        exit 1;
+        }
+else
+
+{
+        read -p "Nome da Pasta: " pasta
+        read -p "Nome do usuario local: " userlocal
+        #
+        echo -e "Adicionando linha no /etc/fstab...."
+        #
+        echo -e "//$ipserver/$pasta /mnt/srv_$usuario cifs vers=1.0,uid=$userlocal,gid=$userlocal,users,credentials=/root/$usuario 0 0" >> /etc/fstab
+        #
+        echo -e "Criando link simbolico para area de trabalho...."
+        ln -s /mnt/srv_$usuario /home/$userlocal/Desktop/
+        #
+        umount -av
+        sleep 2s
+        mount -av
+        }
+fi
