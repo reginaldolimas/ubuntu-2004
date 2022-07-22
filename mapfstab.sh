@@ -10,11 +10,10 @@ FSTABDEP="cifs-utils"
         done
             [[ $deps -ne 1 ]] && echo "Dependências.: OK" || { 
 			echo -en "\nInstale as dependências acima e execute novamente este script\n";
+            echo -en "\n";
 			exit 1; 
 			}
 		    sleep 2
-
-
 
 echo -e "\n"
 read -p "Nome de Usuario(Rede): " usuario
