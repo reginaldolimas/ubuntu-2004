@@ -6,10 +6,10 @@ UBUNTU=$(lsb_release -rs)
 if [ "$USUARIO" == "0" ] && [ "$UBUNTU" == "20.1" ]
 	then
 		echo -e "O usuário é Root, continuando com o script..."
-		echo -e "Distribuição é >= 20.04.x, continuando com o script..."
+		echo -e "Distribuição é >= 20.1, continuando com o script..."
 		sleep 2
 	else
-		echo -e "Usuário não é Root ($USUARIO) ou a Distribuição não é >= 20.04.x ($UBUNTU)"
+		echo -e "Usuário não é Root ($USUARIO) ou a Distribuição não é >= 20.1($UBUNTU)"
 #		echo -e "Caso você não tenha executado o script com o comando: sudo -i"
 		echo -e "Execute novamente o script para verificar o ambiente."
 		exit 1
